@@ -13,6 +13,15 @@ import java.util.Map;
 @Controller("/mvcjson")
 public class JsonDemoController {
 
+    @RequestMapping(method = RequestMethod.GET, value = "/string")
+    public @ResponseBody String getString() {
+        return "hello world!";
+    }
+
+    /**
+     * json demo method for map
+     * @return map (response will be of content-type application/json and body will contain rendered json)
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/map")
     public @ResponseBody Map getJsonMap() {
         Map<String,String> map = new HashMap<String, String>();
@@ -20,6 +29,10 @@ public class JsonDemoController {
         return map;
     }
 
+    /**
+     * json demo method for objects
+     * @return map (response will be of content-type application/json and body will contain rendered json)
+     */
     @RequestMapping(method = RequestMethod.GET, value = "/object")
     public @ResponseBody DemoObject getJsonObject() {
         DemoObject demo1 = new DemoObject();
